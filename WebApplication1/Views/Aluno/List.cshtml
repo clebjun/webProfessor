@@ -1,0 +1,59 @@
+﻿@*@model IEnumerable<WebProfessor.Models.Aluno>*@
+@model IEnumerable<Service.Impl.AlunoDTO>
+
+@{
+    ViewBag.Title = "List";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Lista de Alunos</h2>
+
+<p>
+    @Html.ActionLink("Home", "List", "Professor")
+    @Html.ActionLink("Cadastrar", "Create")
+</p>
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Nome)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Mensalidade)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DataVencimento)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.NomeProfessor)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Nome)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Mensalidade)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DataVencimento)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NomeProfessor)
+            </td>
+            <td>
+                @Html.ActionLink("Excluir", "Delete", new { id = item.Codigo })
+            </td>
+        </tr>
+    }
+
+    @section Scripts {
+        @Scripts.Render("~/bundles/jqueryval")
+        @Scripts.Render("~/bundles/validations_pt-br")
+    }
+
+</table>

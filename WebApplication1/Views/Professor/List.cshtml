@@ -1,0 +1,62 @@
+﻿@model IEnumerable<WebProfessor.Models.Professor>
+
+@{
+    ViewBag.Title = "List";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<h2>Lista de Professores</h2>
+
+<p>
+    @Html.ActionLink("Cadastrar", "Create")
+</p>
+
+
+<br />
+
+
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Nome)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Nome)
+            </td>
+            <td>
+                @using (Html.BeginForm("ListAlunosProfessor",
+                                       "Aluno",
+                                       new { Controller = "Aluno", action = "ListAlunosProfessor", id = item.Codigo },
+                                       FormMethod.Post,
+                                       new { enctype = "multipart/form-data" }))
+                {
+                    <div class="col-md-4">
+                        <input type="submit" value="Lista de Alunos" class="btn btn-default" />
+                    </div>
+                }
+
+                @using (Html.BeginForm("Index",
+                                       "Professor",
+                                       new { id = item.Codigo },
+                                       FormMethod.Post,
+                                       new { enctype = "multipart/form-data" }))
+                {
+                    <div class="col-md-4">
+                        <input type="file" name="postedFile" class="btn btn-default" />
+                    </div>
+                    <div class="col-md-4">
+                        <input type="submit" value="Importar Alunos" class="btn btn-default" />
+                    </div>
+                }
+            </td>
+        </tr>
+    }
+</table>

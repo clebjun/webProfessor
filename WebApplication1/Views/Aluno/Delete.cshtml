@@ -1,0 +1,22 @@
+﻿@model WebProfessor.Models.Aluno
+
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Excluir o aluno</h2>
+
+<h3>Tem certeza que deseja excluir o aluno?</h3>
+<div>
+
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Voltar", "List")
+        </div>
+    }
+</div>

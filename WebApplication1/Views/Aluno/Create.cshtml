@@ -1,0 +1,54 @@
+﻿@model WebProfessor.Models.Aluno
+
+@{
+    ViewBag.Title = "Cadastro";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Cadastro de Alunos</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.ValidationSummary()
+
+    <div class="form-horizontal">
+        <hr />
+
+        <div class="form-group">
+            <div class="col-md-10">
+                @Html.LabelFor(m => Model.Nome)
+                @Html.ValidationMessageFor(model => model.Nome)
+                @Html.TextBoxFor(m => Model.Nome, new { @class = "form-control" })
+
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-10">
+                @Html.LabelFor(m => Model.Mensalidade)
+                @Html.ValidationMessageFor(model => model.Mensalidade)
+                @Html.TextBoxFor(m => Model.Mensalidade, new { @class = "form-control" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-10">
+                @Html.LabelFor(m => Model.DataVencimento, "Data Vencimento")
+                @Html.ValidationMessageFor(model => model.DataVencimento)
+                @Html.TextBoxFor(m => Model.DataVencimento, new { @class = "form-control" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-10">
+                @Html.LabelFor(m => Model.Professor.Nome, "Professor")
+                @Html.ValidationMessageFor(model => model.Professor.Nome)
+                @Html.DropDownList("ListaProfessor", (IEnumerable<SelectListItem>)ViewBag.ProfessorList, new { id = "CodigoProfessor", @class = "form-control" })
+                
+            </div>
+        </div>
+        <input type="submit" name="Salvar" value="Salvar" class="btn btn-default" />
+    </div>
+}
+
+
