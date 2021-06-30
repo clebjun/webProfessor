@@ -60,3 +60,4 @@ C:\git\webProfessor\WebApplication1\bin\System.ValueTuple.dll
 C:\git\webProfessor\WebApplication1\bin\System.ValueTuple.xml
 C:\git\webProfessor\WebApplication1\obj\Debug\WebProfessor.Migrations.Update2.resources
 C:\git\webProfessor\WebApplication1\obj\Debug\WebProfessor.Migrations.Update3.resources
+C:\git\webProfessor\WebApplication1\obj\Debug\WebProfessor.csprojAssemblyReference.cache

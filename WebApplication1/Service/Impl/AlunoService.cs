@@ -110,6 +110,9 @@ namespace Service.Impl
     {
         public int Codigo { get; set; }
         public string Nome { get; set; }
+
+        [DataType(DataType.Currency)]
+        [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:c}")]
         public decimal Mensalidade { get; set; }
         
         [Display(Name = "Data Vencimento")]
